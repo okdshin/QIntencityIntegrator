@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::SetDalFilePath(){
-    const auto path_qstr = QFileDialog::getOpenFileName();
+    const auto path_qstr = QFileDialog::getOpenFileName(this, "open \".dal\" file", "", "Dal file (.dal);;All (.*)");
     if(path_qstr.isEmpty()){
         return;
     }
@@ -35,7 +35,7 @@ void MainWindow::Integrate(){
     const auto intencity_index = ptree.get<unsigned int>("intencity_index", default_intencity_index);
 
     if(this->dal_file_path.empty()){
-        this->statusBar()->showMessage("invalid dal file path.");
+        this->statusBar()->showMessage("invalid dal file path.", 10000);
         return;
     }
 
@@ -45,13 +45,13 @@ void MainWindow::Integrate(){
     }
     std::ofstream save_file(save_path_str.c_str());
     if(!save_file){
-        this->statusBar()->showMessage("invalid save file path.");
+        this->statusBar()->showMessage("invalid save file path.", 10000);
         return;
     }
 
-    std::ifstream dal_file(this->dal_file_path.c_str());
+    boost::filesystem::ifstream dal_file(this->dal_file_path);
     if(!dal_file){
-        this->statusBar()->showMessage("invalid dal file path.");
+        this->statusBar()->showMessage("invalid dal file path.", 10000);
         return;
     }
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>322</width>
-    <height>120</height>
+    <height>127</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,7 +48,7 @@
      <x>0</x>
      <y>0</y>
      <width>322</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -59,7 +59,7 @@
  <connections>
   <connection>
    <sender>pushButton</sender>
-   <signal>pressed()</signal>
+   <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>SetDalFilePath()</slot>
    <hints>
@@ -75,7 +75,7 @@
   </connection>
   <connection>
    <sender>pushButton_2</sender>
-   <signal>pressed()</signal>
+   <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>Integrate()</slot>
    <hints>
