@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::SetDalFilePath(){
-    const auto path_qstr = QFileDialog::getOpenFileName(this, "open \".dal\" file", "", "Dal file (.dal);;All (.*)");
+    const auto path_qstr = QFileDialog::getOpenFileName(this, "open \".dal\" file", "", "Dal file (*.dal);;All (*.*)");
     if(path_qstr.isEmpty()){
         return;
     }
@@ -21,6 +21,7 @@ void MainWindow::SetDalFilePath(){
 }
 
 void MainWindow::Integrate(){
+    this->statusBar()->clearMessage();
     const std::string config_file_name = "config.conf";
     const unsigned int default_intencity_index = 7;
     boost::property_tree::ptree ptree;
@@ -56,6 +57,7 @@ void MainWindow::Integrate(){
     }
 
     intencity_integrator::IntegrateIntencity(intencity_index, dal_file, this->dal_file_path, save_file);
+    this->statusBar()->showMessage("integrated!", 10000);
 }
 
 MainWindow::~MainWindow()

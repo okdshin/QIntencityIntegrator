@@ -15,8 +15,7 @@ QMAKE_CXXFLAGS += -std=gnu++11
 INCLUDEPATH += C:\MinGW\msys\1.0\home\okada\boost_1_52_0
 LIBS += -LC:\MinGW\lib \
     -LC:\MinGW\msys\1.0\home\okada\boost_1_52_0\stage\lib \
-    -lboost_filesystem-mgw47-mt-sd-1_52 -lboost_date_time-mgw47-mt-sd-1_52 -lboost_iostreams-mgw47-mt-sd-1_52 \
-    -lboost_serialization-mgw47-mt-sd-1_52 -lcrypto -lboost_thread-mgw47-mt-sd-1_52 -lpthread -lboost_system-mgw47-mt-sd-1_52
+    -lboost_filesystem-mgw47-mt-sd-1_52 -lboost_iostreams-mgw47-mt-sd-1_52 -lboost_system-mgw47-mt-sd-1_52
 SOURCES += main.cpp\
         mainwindow.cpp
 
